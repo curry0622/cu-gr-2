@@ -22,7 +22,7 @@ $ git clone https://github.com/cuhk-eda/cu-gr-2
 **Step 2:** Go to the project root and build by
 ```bash
 $ cd cu-gr-2
-$ scripts/build.py -o release
+$ scripts/build.py -o release -t route
 ```
 
 Note that this will generate two folders under the root, `build` and `run` (`build` contains intermediate files for build/compilation, while `run` contains binaries and auxiliary files).

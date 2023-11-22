@@ -3,7 +3,7 @@
 #########
 
 # Specify the minimum version for CMake
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.1.0)
 
 # Message
 message(STATUS "Global Router CUGR 2.0")
@@ -35,8 +35,12 @@ set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Werror=return-type")
 ######################
 # Check Dependencies #
 ######################
+# set(Boost_USE_STATIC_LIBS ON)
+# find_package(Boost COMPONENTS system filesystem program_options REQUIRED)
 set(Boost_USE_STATIC_LIBS ON)
-find_package(Boost COMPONENTS system filesystem program_options REQUIRED)
+set(BOOST_INCLUDEDIR ../boost/include)
+set(BOOST_LIBRARYDIR ../boost/lib)
+find_package(Boost EXACT 1.67.0 COMPONENTS filesystem program_options REQUIRED)
 # find_package(Threads)
 
 ###############

@@ -4,7 +4,7 @@ import argparse
 import os
 import datetime
 from run_base import *
-from visualize_heatmap import visualize
+# from visualize_heatmap import visualize
 
 # constants
 binary = 'route'
@@ -65,14 +65,14 @@ def route():
         run('gprof {} > {}.gprof'.format(binary, bm.full_name))
         run('./gprof2dot.py -s {0}.gprof | dot -Tpdf -o {0}.pdf'.format(bm.full_name))
     
-    # visualize grid graph heatmap
-    heatmap_name = 'heatmap.txt'
-    if os.path.exists(heatmap_name):
-        visualize(heatmap_name)
-        run('rm {}'.format(heatmap_name))
-        # update figs
-        run('rm -rf {}/figs'.format(bm_log_dir))
-        run('mv -f figs {}'.format(bm_log_dir))
+    # # visualize grid graph heatmap
+    # heatmap_name = 'heatmap.txt'
+    # if os.path.exists(heatmap_name):
+    #     visualize(heatmap_name)
+    #     run('rm {}'.format(heatmap_name))
+    #     # update figs
+    #     run('rm -rf {}/figs'.format(bm_log_dir))
+    #     run('mv -f figs {}'.format(bm_log_dir))
         
     run('mv *.solution.guide* *.solution.def* *.gprof *.pdf {} 2>/dev/null'.format(bm_log_dir))
 
